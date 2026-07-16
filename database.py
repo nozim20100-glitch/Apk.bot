@@ -12,6 +12,7 @@ DATABASE_URL = os.environ.get("DATABASE_URL", "")
 
 if DATABASE_URL:
     print("SQLITE ISHLAYAPTI")
+    
     import psycopg2
     import psycopg2.extras
     import psycopg2.errors
@@ -26,8 +27,8 @@ if DATABASE_URL:
     PH = "%s"          # PostgreSQL placeholder
     IS_PG = True
 else:
-    else:
     print("SQLITE ISHLAYAPTI")
+    
     def get_connection():
     def get_connection():
         conn = sqlite3.connect(os.path.join(os.path.dirname(__file__), "apks.db"))
