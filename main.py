@@ -7,7 +7,11 @@ from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 
 from database import init_db
-from handlers import admin, apk_list, video_list, post_list, start
+import admin
+import apk_list
+import video_list
+import post_list
+import start
 
 logging.basicConfig(
     level=logging.INFO,
