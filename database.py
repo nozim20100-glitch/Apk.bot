@@ -11,34 +11,35 @@ DATABASE_URL = os.environ.get("DATABASE_URL", "")
 # ─── Adapter: har ikki DB uchun bir xil interfeys ─────────────────────────────
 
 if DATABASE_URL:
-    if DATABASE_URL:
     print("POSTGRESQL ISHLAYAPTI")
-    
+
     import psycopg2
     import psycopg2.extras
     import psycopg2.errors
 
     def get_connection():
-        conn = psycopg2.connect(DATABASE_URL)
-        return conn
+        return psycopg2.connect(DATABASE_URL)
 
     def _cursor(conn):
         return conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
-    PH = "%s"          # PostgreSQL placeholder
+    PH = "%s"
     IS_PG = True
+
 else:
     print("SQLITE ISHLAYAPTI")
-    
+
     def get_connection():
-        conn = sqlite3.connect(os.path.join(os.path.dirname(__file__), "apks.db"))
+        conn = sqlite3.connect(
+            os.path.join(os.path.dirname(__file__), "apks.db")
+        )
         conn.row_factory = sqlite3.Row
         return conn
 
     def _cursor(conn):
         return conn.cursor()
 
-    PH = "?"           # SQLite placeholder
+    PH = "?"
     IS_PG = False
 
 
