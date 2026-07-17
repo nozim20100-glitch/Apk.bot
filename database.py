@@ -11,7 +11,8 @@ DATABASE_URL = os.environ.get("DATABASE_URL", "")
 # ─── Adapter: har ikki DB uchun bir xil interfeys ─────────────────────────────
 
 if DATABASE_URL:
-    print("SQLITE ISHLAYAPTI")
+    if DATABASE_URL:
+    print("POSTGRESQL ISHLAYAPTI")
     
     import psycopg2
     import psycopg2.extras
