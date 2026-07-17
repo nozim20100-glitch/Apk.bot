@@ -30,7 +30,6 @@ else:
     print("SQLITE ISHLAYAPTI")
     
     def get_connection():
-    def get_connection():
         conn = sqlite3.connect(os.path.join(os.path.dirname(__file__), "apks.db"))
         conn.row_factory = sqlite3.Row
         return conn
